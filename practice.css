@@ -1,0 +1,396 @@
+.scrollWatcher{
+    height: 5px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    border-radius: 100vw;
+    background-image: linear-gradient(to right, rgb(39, 39, 39), rgb(46, 0, 0));
+    border: 1px solid blue;
+    width: 100%;
+    scale: 0 1;
+    animation: scrollWatcher linear;
+    animation-timeline: scroll();
+}
+@keyframes scrollWatcher{
+    to{
+        scale: 1 1;
+    }
+}
+h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+}
+.typeWriter{
+    display: flex;
+    justify-content: center;
+}
+.typeWriter h2{
+    font-family: monospace;
+    margin-inline: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 1px solid;
+    animation: typing 3s steps(22) forwards, 
+    blink 1s step-end infinite;
+}
+@keyframes typing{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+@keyframes blink{
+    50%{
+        border-color: transparent;
+    }
+}
+body{
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin-left: 20px;
+    overflow-x: hidden;
+}
+.imgContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgContainer img{
+    width: 20%;
+    border-radius: 100%;
+    transition: transform 1000ms;
+}
+.imgContainer img:hover,
+.imgContainer img:focus-visible {
+    cursor: pointer;
+    /* box-shadow: 0px 5px 10px #fff; */
+    transform: translateY(-1.5rem);
+    transition: transform 250ms;
+}
+.boxContainer{
+    flex: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    gap: 14px;
+}
+@media (width >= 40em) {
+    .box{
+        flex: 48%;
+    }
+    
+}
+
+@media (width >= 60em) {
+    .box{
+        flex: 23%;
+    }
+    
+        
+}
+
+.box{
+    flex: 100;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    display: flex;
+    /* width: 180px; */
+    color: white;
+    justify-content: center;
+    align-items: center;
+    background-color: #161a20;
+    gap: 14px;
+    /* overflow: hidden; */
+    padding: 1em 2em;
+}
+.box::after{
+    content: '';
+    position: absolute;
+    height: 102%;
+    width: 102%;
+    border-radius: 10px;
+    background-image: linear-gradient(to  bottom right, #008cff, #e100ff);
+    z-index: -1;
+}
+.box:hover{
+    cursor: pointer;
+    z-index: 0;
+    box-shadow: 10px 0px 100px #008cff, -10px 0 100px #e100ff;
+}
+.cardContainer{
+    flex-wrap: wrap;
+    display: flex;
+    gap: 14px;
+}
+.cards{
+    flex: 1;
+    margin-top: 10px;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    /* width: 180px; */
+    animation: shrink linear;
+    animation-timeline: view();
+    animation-range: exit;
+}
+.cards h2{
+    font-family: cursive;
+    color: #fff;
+    text-shadow: 
+    0 0 7px #fff, 
+    0 0 10px #fff, 
+    0 0 42px #e6127c, 
+    0 0 77px #e6127c, 
+    0 0 100px #e6127c;
+}
+.cards p{
+    color: white;
+}
+@keyframes shrink{
+    to{
+        scale: 0.7;
+        opacity: 0;
+    }
+}
+.sectionTwo{
+    /* flex: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(70, 70, 70);
+    color: white;
+    padding: 1em 2em;
+    animation: swipe linear;  
+    animation-timeline: view();
+    animation-range: 1px 500px;
+
+}
+.left{
+    background-color: #161a20;
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+}
+.left img{
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+@keyframes swipe{
+    from{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to{
+        opacity: 100;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes fade-in{
+    from{
+        scale: 0.8;
+        opacity: 0;
+    }
+    to{
+        scale: 1;
+        opacity: 1;
+    }
+}
+.text{
+    align-self:first baseline;
+}
+@media (min-width: 1000px){
+    .sectionTwo{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .left{
+        float: none;
+        flex: 1;
+        width: 25%;
+        margin-right: 20px;
+    }
+    .left img{
+        width: 100%;
+        max-width: 300px;
+    }
+    .text{
+        flex: 3;
+    }
+}
+@media (max-width: 800px){
+    .imgContainer img{
+        width: 60%;
+    }
+}
+@media (max-width: 900px){
+    .imgContainer img{
+        width: 50%;
+    }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+.wrapper {
+    /* border: 1px solid white; */
+  width: 90%;
+  max-width: 1536px;
+  margin-inline: auto;
+  position: relative;
+  height: 100px;
+  margin-top: 5rem;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1) 20%,
+    rgba(0, 0, 0, 1) 80%,
+    rgba(0, 0, 0, 0)
+  );
+  animation: fade-in linear;  
+  animation-timeline: view();
+  animation-range: 1px 500px;
+}
+
+@keyframes scrollLeft {
+  to {
+    left: -200px;
+  }
+}
+
+.item {
+  width: 200px;
+  height: 100px;
+  background-color: red;
+  border-radius: 6px;
+  position: absolute;
+  left: max(calc(200px * 8), 100%);
+  animation-name: scrollLeft;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.item1 {
+  animation-delay: calc(30s / 8 * (8 - 1) * -1);
+}
+
+.item2 {
+  animation-delay: calc(30s / 8 * (8 - 2) * -1);
+}
+
+.item3 {
+  animation-delay: calc(30s / 8 * (8 - 3) * -1);
+}
+
+.item4 {
+  animation-delay: calc(30s / 8 * (8 - 4) * -1);
+}
+
+.item5 {
+  animation-delay: calc(30s / 8 * (8 - 5) * -1);
+}
+
+.item6 {
+  animation-delay: calc(30s / 8 * (8 - 6) * -1);
+}
+
+.item7 {
+  animation-delay: calc(30s / 8 * (8 - 7) * -1);
+}
+
+.item8 {
+  animation-delay: calc(30s / 8 * (8 - 8) * -1);
+}
+
+.images{
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    position: absolute;
+    left: max(calc(200px * 8), 100%);
+    animation-name: scrollLeft;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.pic1 {
+    animation-delay: calc(30s / 8 * (8 - 1) * -1);
+}
+  
+.pic2 {
+    animation-delay: calc(30s / 8 * (8 - 2) * -1);
+}
+  
+.pic3 {
+    animation-delay: calc(30s / 8 * (8 - 3) * -1);
+}
+  
+.pic4 {
+    animation-delay: calc(30s / 8 * (8 - 4) * -1);
+}
+  
+.pic5 {
+    animation-delay: calc(30s / 8 * (8 - 5) * -1);
+}
+  
+.pic6 {
+    animation-delay: calc(30s / 8 * (8 - 6) * -1);
+}
+  
+.pic7 {
+    animation-delay: calc(30s / 8 * (8 - 7) * -1);
+}
+  
+.pic8 {
+    animation-delay: calc(30s / 8 * (8 - 8) * -1);
+}
+
+
+.Rotatingbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    height: 170px;
+    margin-bottom: 20px;
+}
+.rotatingBox{
+    background-image: linear-gradient(to right, blue, purple);
+    width: 170px;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 100000px #b8b7b7;
+    animation: rotate 0.5s infinite linear paused;
+    cursor: pointer;
+}
+.rotatingBox:hover{
+    animation-play-state: running;
+    cursor: pointer;
+}
+@keyframes rotate{
+    to{
+        transform: rotate(360deg);
+    }
+}
+.bottomSpace{
+    margin-bottom: 400px;
+}
